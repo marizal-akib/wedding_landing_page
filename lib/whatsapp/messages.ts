@@ -14,15 +14,15 @@ export type WhatsAppIntent = (typeof WHATSAPP_INTENTS)[keyof typeof WHATSAPP_INT
 
 export const WHATSAPP_MESSAGES: Record<WhatsAppIntent, string> = {
   [WHATSAPP_INTENTS.availability]:
-    "Hi, I'd like to check availability for my wedding date.",
+    "Hi Daniel lawani team, I hope you're well. We'd love to check your availability for our wedding date.",
   [WHATSAPP_INTENTS.bookCall]:
-    "Hi, I'd like to book a call for the wedding package.",
+    "Hi Daniel lawani team, we'd love to book a quick call to discuss wedding coverage and see if we're the right fit.",
   [WHATSAPP_INTENTS.pricing]:
-    "Hi, can you send me your full wedding pricing guide?",
+    "Hi Daniel lawani team, could you please share your full wedding pricing guide and package options?",
   [WHATSAPP_INTENTS.preWeddingShoot]:
-    "Hi, I'd like to enquire about a pre-wedding or engagement shoot.",
+    "Hi Daniel lawani team, we're interested in a pre-wedding / engagement shoot. Could you share availability and pricing?",
   [WHATSAPP_INTENTS.portfolio]:
-    "Hi, I'd like to view your wedding portfolio and know more about your style.",
+    "Hi Daniel lawani team, I'd love to view more of your wedding portfolio and learn more about your style.",
   [WHATSAPP_INTENTS.general]:
-    "Hi, I'd like to get in touch about wedding photography.",
+    "Hi Daniel lawani team, we'd love to enquire about wedding photography and videography packages. What’s the best next step?",
 };
