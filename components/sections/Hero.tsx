@@ -7,12 +7,14 @@ export default function Hero() {
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-warm-dark pt-16 md:pt-20">
       {/* Fullscreen background video */}
       <video
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover object-top"
         src="/hero.mp4"
+        poster="/portfolio/portfolio-09.jpg"
         autoPlay
         muted
         loop
         playsInline
+        preload="metadata"
         aria-hidden
       />
 
@@ -44,13 +46,13 @@ export default function Hero() {
       <div className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 max-w-5xl mx-auto">
         {/* Eyebrow */}
         <div className="flex items-center justify-center mb-6 sm:mb-8">
-          <span className="font-sans text-sm uppercase tracking-[0.3em] text-amber/90">
+          <span className="font-sans text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] text-amber/90">
             London Wedding Photographer & Filmmaker
           </span>
         </div>
 
         {/* Headline */}
-        <h1 className="font-italianno font-normal text-ivory text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.15] tracking-wide sm:tracking-normal mb-6 sm:mb-8">
+        <h1 className="font-italianno font-normal text-ivory text-[clamp(1.75rem,5vw,4.5rem)] sm:text-5xl md:text-6xl lg:text-7xl leading-[1.15] tracking-wide sm:tracking-normal mb-6 sm:mb-8">
           {hero.headline}
         </h1>
 
@@ -63,11 +65,12 @@ export default function Hero() {
         </p>
 
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 mb-16 sm:mb-20">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto max-w-sm sm:max-w-none mb-16 sm:mb-20">
           <Button
             href={buildWhatsAppUrl(WHATSAPP_INTENTS.availability)}
             variant="primary"
             size="lg"
+            className="w-full sm:w-auto min-h-[48px]"
             external
             whatsAppCta={{
               intent: WHATSAPP_INTENTS.availability,
@@ -81,6 +84,7 @@ export default function Hero() {
             href={buildWhatsAppUrl(WHATSAPP_INTENTS.general)}
             variant="ghost-light"
             size="lg"
+            className="w-full sm:w-auto min-h-[48px]"
             external
             whatsAppCta={{
               intent: WHATSAPP_INTENTS.general,
@@ -94,7 +98,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce opacity-50 z-10">
+      <div className="absolute bottom-[max(1rem,env(safe-area-inset-bottom))] sm:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce opacity-50 z-10 py-2">
         <span className="font-sans text-xs uppercase tracking-[0.2em] text-ivory/50">
           Scroll
         </span>

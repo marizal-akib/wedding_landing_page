@@ -17,14 +17,14 @@ export default function AccordionItem({
     <div className="border-b border-ivory-dark">
       <button
         onClick={onToggle}
-        className="flex w-full items-center justify-between py-5 text-left"
+        className="flex w-full items-center justify-between py-5 min-h-[52px] text-left gap-4"
         aria-expanded={isOpen}
       >
-        <span className="font-serif text-lg md:text-xl text-charcoal pr-6">
+        <span className="font-serif text-lg md:text-xl text-charcoal pr-2 flex-1 min-w-0">
           {question}
         </span>
         <span
-          className={`flex-shrink-0 flex h-7 w-7 items-center justify-center border border-amber/40 text-amber transition-transform duration-300 ${
+          className={`flex-shrink-0 flex min-w-[44px] min-h-[44px] w-11 h-11 items-center justify-center border border-amber/40 text-amber transition-transform duration-300 ${
             isOpen ? "rotate-45" : ""
           }`}
           aria-hidden
@@ -44,7 +44,7 @@ export default function AccordionItem({
       </button>
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          isOpen ? "max-h-60 pb-5" : "max-h-0"
+          isOpen ? "max-h-[280px] md:max-h-60 overflow-y-auto pb-5" : "max-h-0"
         }`}
       >
         <p className="font-sans text-base text-charcoal-soft leading-relaxed pr-10">

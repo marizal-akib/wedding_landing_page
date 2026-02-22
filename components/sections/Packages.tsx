@@ -3,8 +3,8 @@ import { buildWhatsAppUrl, WHATSAPP_INTENTS } from "@/lib/whatsapp";
 
 export default function Packages() {
   return (
-    <section id="packages" className="bg-warm-dark py-20 md:py-28 lg:py-32">
-      <div className="mx-auto max-w-6xl px-6 md:px-10">
+    <section id="packages" className="bg-warm-dark py-12 sm:py-20 md:py-28 lg:py-32">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6 md:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left: Price callout */}
           <div className="flex flex-col gap-8">
@@ -17,7 +17,7 @@ export default function Packages() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <h2 className="font-serif font-light text-ivory text-3xl md:text-4xl">
+              <h2 className="font-serif font-light text-ivory text-[clamp(1.5rem,4vw,2.25rem)] md:text-4xl">
                 {packages.heading}
               </h2>
               <p className="font-serif text-6xl md:text-7xl text-amber">
@@ -39,7 +39,7 @@ export default function Packages() {
               data-cta-intent={WHATSAPP_INTENTS.pricing}
               data-cta-location="packages"
               aria-label="Request full pricing guide on WhatsApp"
-              className="inline-flex items-center gap-3 bg-amber text-warm-dark px-8 py-4 font-sans text-sm font-medium uppercase tracking-widest hover:bg-amber-dark transition-colors duration-200 self-start focus:outline-none focus:ring-2 focus:ring-amber focus:ring-offset-2 focus:ring-offset-warm-dark"
+              className="inline-flex items-center justify-center gap-3 bg-amber text-warm-dark px-8 py-4 min-h-[48px] font-sans text-sm font-medium uppercase tracking-widest hover:bg-amber-dark transition-colors duration-200 self-start focus:outline-none focus:ring-2 focus:ring-amber focus:ring-offset-2 focus:ring-offset-warm-dark active:scale-[0.98]"
             >
               Request Full Pricing Guide
             </a>

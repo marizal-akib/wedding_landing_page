@@ -13,7 +13,7 @@ export default function HowItWorks() {
           </span>
           <span className="block h-px w-8 bg-amber/60" />
         </div>
-        <h2 className="font-serif font-light text-charcoal text-3xl md:text-4xl lg:text-5xl">
+        <h2 className="font-serif font-light text-charcoal text-[clamp(1.5rem,4vw,3rem)] md:text-4xl lg:text-5xl">
           From Enquiry to Delivery
         </h2>
       </div>
@@ -46,7 +46,7 @@ export default function HowItWorks() {
             </h3>
 
             {/* Description */}
-            <p className="font-sans text-sm text-charcoal-soft leading-relaxed">
+            <p className="font-sans text-base sm:text-sm text-charcoal-soft leading-relaxed">
               {step.description}
             </p>
           </div>

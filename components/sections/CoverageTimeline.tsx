@@ -14,7 +14,7 @@ export default function CoverageTimeline() {
           </span>
           <span className="block h-px w-8 bg-amber/60" />
         </div>
-        <h2 className="font-serif font-light text-charcoal text-3xl md:text-4xl lg:text-5xl">
+        <h2 className="font-serif font-light text-charcoal text-[clamp(1.5rem,4vw,3rem)] md:text-4xl lg:text-5xl">
           Every Moment, Beautifully Covered
         </h2>
       </div>
@@ -29,7 +29,7 @@ export default function CoverageTimeline() {
                 src={step.image}
                 alt={step.label}
                 fill
-                className="object-cover"
+                className="object-cover object-top"
                 sizes="(max-width: 1280px) 20vw, 256px"
               />
             </div>
@@ -57,7 +57,7 @@ export default function CoverageTimeline() {
                 src={step.image}
                 alt={step.label}
                 fill
-                className="object-cover"
+                className="object-cover object-top"
                 sizes="100vw"
               />
             </div>

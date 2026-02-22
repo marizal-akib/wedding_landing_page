@@ -36,7 +36,7 @@ export default function WhatWeOffer() {
           </span>
           <span className="block h-px w-8 bg-amber/60" />
         </div>
-        <h2 className="font-serif font-light text-charcoal text-3xl md:text-4xl lg:text-5xl">
+        <h2 className="font-serif font-light text-charcoal text-[clamp(1.5rem,4vw,3rem)] md:text-4xl lg:text-5xl">
           Coverage Crafted for Every Couple
         </h2>
       </div>
@@ -64,7 +64,7 @@ export default function WhatWeOffer() {
               {offer.bullets.map((bullet) => (
                 <li
                   key={bullet}
-                  className="flex items-start gap-3 font-sans text-sm text-charcoal-soft leading-relaxed"
+                  className="flex items-start gap-3 font-sans text-base sm:text-sm text-charcoal-soft leading-relaxed"
                 >
                   <span className="mt-1.5 flex-shrink-0 w-1 h-1 rounded-full bg-amber" />
                   {bullet}

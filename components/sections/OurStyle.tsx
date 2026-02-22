@@ -13,7 +13,7 @@ export default function OurStyle() {
               src={styleSection.stylePreviewImage}
               alt="Style Preview"
               fill
-              className="object-cover"
+              className="object-cover object-top"
               sizes="(max-width: 1024px) 100vw, 50vw"
               priority
             />
@@ -39,7 +39,7 @@ export default function OurStyle() {
           </div>
 
           {/* Heading */}
-          <h2 className="font-serif font-light text-charcoal text-3xl md:text-4xl lg:text-5xl leading-snug">
+          <h2 className="font-serif font-light text-charcoal text-[clamp(1.5rem,4vw,3rem)] md:text-4xl lg:text-5xl leading-snug">
             {styleSection.heading}
           </h2>
 

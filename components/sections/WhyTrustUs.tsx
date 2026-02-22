@@ -15,7 +15,7 @@ export default function WhyTrustUs() {
         </div>
 
         {/* Heading */}
-        <h2 className="font-serif font-light text-charcoal text-3xl md:text-4xl lg:text-5xl leading-snug">
+        <h2 className="font-serif font-light text-charcoal text-[clamp(1.5rem,4vw,3rem)] md:text-4xl lg:text-5xl leading-snug">
           {whyTrustUs.heading}
         </h2>
 
@@ -49,7 +49,7 @@ export default function WhyTrustUs() {
               >
                 <polyline points="2,8 6,12 14,4" />
               </svg>
-              <span className="font-sans text-sm text-charcoal-soft leading-relaxed">
+              <span className="font-sans text-base sm:text-sm text-charcoal-soft leading-relaxed">
                 {point}
               </span>
             </div>

@@ -5,8 +5,25 @@ import Image from "next/image";
 import { portfolio } from "@/lib/content/weddingLanding";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 
+function useVisibleCount() {
+  const [visibleCount, setVisibleCount] = useState(1);
+  useEffect(() => {
+    const mq = (w: number) => window.matchMedia(`(min-width: ${w}px)`);
+    const update = () => {
+      if (mq(768).matches) setVisibleCount(3);
+      else if (mq(640).matches) setVisibleCount(2);
+      else setVisibleCount(1);
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+  return visibleCount;
+}
+
 export default function PortfolioPreview() {
   const { videoEmbedUrl, images } = portfolio;
+  const visibleCount = useVisibleCount();
 
   const [current, setCurrent] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -42,9 +59,6 @@ export default function PortfolioPreview() {
     return () => window.removeEventListener("keydown", onKey);
   }, [lightboxOpen, lightboxPrev, lightboxNext]);
 
-  // How many cards are visible at once based on layout
-  const visibleCount = 3;
-
   return (
     <SectionWrapper id="portfolio" className="bg-ivory-dark">
       {/* Header */}
@@ -56,7 +70,7 @@ export default function PortfolioPreview() {
           </span>
           <span className="block h-px w-8 bg-amber/60" />
         </div>
-        <h2 className="font-serif font-light text-charcoal text-3xl md:text-4xl lg:text-5xl mb-4">
+        <h2 className="font-serif font-light text-charcoal text-[clamp(1.5rem,4vw,3rem)] md:text-4xl lg:text-5xl mb-4">
           Moments We&apos;ve Captured
         </h2>
         <p className="font-sans text-sm text-charcoal-soft max-w-md">
@@ -115,7 +129,7 @@ export default function PortfolioPreview() {
                     alt={img.label}
                     fill
                     quality={100}
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   {/* Hover label */}
@@ -130,11 +144,11 @@ export default function PortfolioPreview() {
           </div>
         </div>
 
-        {/* Prev / Next arrows */}
+        {/* Prev / Next arrows - visible on sm+ */}
         <button
           onClick={prev}
           aria-label="Previous"
-          className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 z-10 h-10 w-10 items-center justify-center border border-amber/40 bg-ivory hover:bg-amber/10 transition-colors"
+          className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 z-10 h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center border border-amber/40 bg-ivory hover:bg-amber/10 transition-colors"
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-charcoal">
             <polyline points="10,2 4,8 10,14" />
@@ -143,7 +157,7 @@ export default function PortfolioPreview() {
         <button
           onClick={next}
           aria-label="Next"
-          className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 z-10 h-10 w-10 items-center justify-center border border-amber/40 bg-ivory hover:bg-amber/10 transition-colors"
+          className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 z-10 h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center border border-amber/40 bg-ivory hover:bg-amber/10 transition-colors"
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-charcoal">
             <polyline points="6,2 12,8 6,14" />
@@ -151,17 +165,21 @@ export default function PortfolioPreview() {
         </button>
       </div>
 
-      {/* Dot indicators */}
-      <div className="flex justify-center gap-2 mt-4 sm:mt-6">
+      {/* Dot indicators - touch-friendly tap area (min 24px) */}
+      <div className="flex justify-center gap-0.5 sm:gap-2 mt-4 sm:mt-6 flex-wrap">
         {images.map((_, i) => (
           <button
             key={i}
             onClick={() => setCurrent(i)}
             aria-label={`Go to slide ${i + 1}`}
-            className={`h-1.5 rounded-full transition-all duration-300 ${
-              i === current ? "w-6 bg-amber" : "w-1.5 bg-amber/30"
-            }`}
-          />
+            className="p-2 min-w-[28px] min-h-[28px] flex items-center justify-center rounded-full"
+          >
+            <span
+              className={`block rounded-full transition-all duration-300 flex-shrink-0 ${
+                i === current ? "w-6 h-1.5 bg-amber" : "w-1.5 h-1.5 bg-amber/30"
+              }`}
+            />
+          </button>
         ))}
       </div>
 

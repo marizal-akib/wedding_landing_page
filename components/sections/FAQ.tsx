@@ -20,7 +20,7 @@ export default function FAQ() {
             </span>
             <span className="block h-px w-8 bg-amber/60" />
           </div>
-          <h2 className="font-serif font-light text-charcoal text-3xl md:text-4xl lg:text-5xl">
+          <h2 className="font-serif font-light text-charcoal text-[clamp(1.5rem,4vw,3rem)] md:text-4xl lg:text-5xl">
             Common Questions
           </h2>
         </div>

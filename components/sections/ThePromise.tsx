@@ -15,7 +15,7 @@ export default function ThePromise() {
         </div>
 
         {/* Heading */}
-        <h2 className="font-serif font-light text-charcoal text-3xl md:text-4xl lg:text-5xl leading-snug mb-8 sm:mb-12 whitespace-pre-line">
+        <h2 className="font-serif font-light text-charcoal text-[clamp(1.5rem,4vw,3rem)] md:text-4xl lg:text-5xl leading-snug mb-8 sm:mb-12 whitespace-pre-line">
           {promise.heading}
         </h2>
 

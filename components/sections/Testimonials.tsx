@@ -13,7 +13,7 @@ export default function Testimonials() {
           </span>
           <span className="block h-px w-8 bg-amber/60" />
         </div>
-        <h2 className="font-serif font-light text-charcoal text-3xl md:text-4xl lg:text-5xl">
+        <h2 className="font-serif font-light text-charcoal text-[clamp(1.5rem,4vw,3rem)] md:text-4xl lg:text-5xl">
           What Couples Say
         </h2>
       </div>
@@ -23,7 +23,7 @@ export default function Testimonials() {
         {testimonials.map((t) => (
           <div
             key={t.author}
-            className="relative bg-ivory-dark border border-ivory-dark/80 p-8 flex flex-col gap-6"
+            className="relative bg-ivory-dark border border-ivory-dark/80 p-6 sm:p-8 flex flex-col gap-6"
           >
             {/* Large quote mark */}
             <span

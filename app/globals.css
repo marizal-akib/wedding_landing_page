@@ -16,6 +16,14 @@
   --font-italianno: var(--font-italianno-var);
 }
 
+/* Safe area insets for notched devices */
+:root {
+  --safe-area-inset-top: env(safe-area-inset-top, 0px);
+  --safe-area-inset-right: env(safe-area-inset-right, 0px);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-inset-left: env(safe-area-inset-left, 0px);
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -23,6 +31,26 @@ html {
 body {
   background-color: #FAF7F2;
   color: #1C1C1C;
+  font-size: 16px;
+}
+
+/* Reduce 300ms tap delay on interactive elements */
+button,
+a,
+[role="button"],
+input,
+select,
+textarea {
+  touch-action: manipulation;
+}
+
+/* Hide scrollbar for horizontal scroll areas (e.g. Trust Strip) */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
 
 ::selection {

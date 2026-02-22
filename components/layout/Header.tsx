@@ -17,7 +17,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80);
+    const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -76,7 +76,7 @@ export default function Header() {
 
           {/* Mobile Hamburger */}
           <button
-            className={`md:hidden flex flex-col gap-1.5 p-1 transition-colors duration-300 ${
+            className={`md:hidden flex flex-col gap-1.5 p-3 min-w-[44px] min-h-[44px] items-center justify-center transition-colors duration-300 ${
               scrolled ? "text-charcoal" : "text-ivory"
             }`}
             onClick={() => setMenuOpen((v) => !v)}
@@ -113,7 +113,7 @@ export default function Header() {
             key={link.href}
             href={link.href}
             onClick={closeMenu}
-            className="font-serif text-3xl text-ivory hover:text-amber transition-colors duration-200 tracking-wide"
+            className="font-serif text-3xl text-ivory hover:text-amber transition-colors duration-200 tracking-wide py-4 min-h-[48px] flex items-center"
           >
             {link.label}
           </Link>
@@ -127,7 +127,7 @@ export default function Header() {
           data-cta-location="header"
           aria-label="Check availability on WhatsApp"
           onClick={closeMenu}
-          className="mt-4 bg-amber text-warm-dark px-8 py-4 font-sans text-sm font-medium uppercase tracking-widest hover:bg-amber-dark transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber focus:ring-offset-2"
+          className="mt-4 w-full max-w-[280px] sm:max-w-[320px] text-center bg-amber text-warm-dark px-8 py-4 min-h-[48px] font-sans text-sm font-medium uppercase tracking-widest hover:bg-amber-dark transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber focus:ring-offset-2 flex items-center justify-center"
         >
           Check Availability
         </a>

@@ -25,8 +25,8 @@ const variantClasses: Record<ButtonVariant, string> = {
 
 const sizeClasses: Record<ButtonSize, string> = {
   sm: "px-5 py-2.5 text-xs tracking-widest",
-  md: "px-7 py-3.5 text-sm tracking-widest",
-  lg: "px-9 py-4 text-sm tracking-widest",
+  md: "px-7 py-3.5 text-sm tracking-widest min-h-[48px]",
+  lg: "px-9 py-4 text-sm tracking-widest min-h-[48px]",
 };
 
 export default function Button({
@@ -38,7 +38,7 @@ export default function Button({
   className = "",
   whatsAppCta,
 }: ButtonProps) {
-  const classes = `inline-flex items-center justify-center font-sans font-medium uppercase transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-amber focus:ring-offset-2 focus:ring-offset-warm-dark ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
+  const classes = `inline-flex items-center justify-center font-sans font-medium uppercase transition-all duration-200 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-amber focus:ring-offset-2 focus:ring-offset-warm-dark ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
 
   if (external) {
     return (

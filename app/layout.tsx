@@ -25,6 +25,12 @@ const italianno = Italianno({
   display: "swap",
 });
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 export const metadata: Metadata = {
   title: "Daniel lawani | Cinematic Wedding Photography & Films",
   description:
