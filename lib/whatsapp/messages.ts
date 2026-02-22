@@ -24,5 +24,5 @@ export const WHATSAPP_MESSAGES: Record<WhatsAppIntent, string> = {
   [WHATSAPP_INTENTS.portfolio]:
     "Hi Daniel lawani team, I'd love to view more of your wedding portfolio and learn more about your style.",
   [WHATSAPP_INTENTS.general]:
-    "Hi Daniel lawani team, we'd love to enquire about wedding photography and videography packages. What’s the best next step?",
+    "Hi Daniel lawani team, We'd love to check your availability for our wedding date.",
 };
