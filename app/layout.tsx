@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Bodoni_Moda, Inter, Italianno } from "next/font/google";
 import "./globals.css";
+import WhatsAppAnalyticsHandler from "@/components/WhatsAppAnalyticsHandler";
 
 const bodoni = Bodoni_Moda({
   variable: "--font-serif-var",
@@ -60,6 +61,7 @@ export default function RootLayout({
         className={`${bodoni.variable} ${inter.variable} ${italianno.variable} font-sans antialiased`}
       >
         {children}
+        <WhatsAppAnalyticsHandler />
       </body>
     </html>
   );

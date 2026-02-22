@@ -10,6 +10,8 @@ interface ButtonProps {
   size?: ButtonSize;
   external?: boolean;
   className?: string;
+  /** For WhatsApp CTAs: adds analytics attributes */
+  whatsAppCta?: { intent: string; location: string; ariaLabel?: string };
 }
 
 const variantClasses: Record<ButtonVariant, string> = {
@@ -34,12 +36,26 @@ export default function Button({
   size = "md",
   external = false,
   className = "",
+  whatsAppCta,
 }: ButtonProps) {
-  const classes = `inline-flex items-center justify-center font-sans font-medium uppercase transition-all duration-200 ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
+  const classes = `inline-flex items-center justify-center font-sans font-medium uppercase transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-amber focus:ring-offset-2 focus:ring-offset-warm-dark ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
 
   if (external) {
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        {...(whatsAppCta
+          ? {
+              "data-whatsapp-cta": "",
+              "data-cta-intent": whatsAppCta.intent,
+              "data-cta-location": whatsAppCta.location,
+              ...(whatsAppCta.ariaLabel && { "aria-label": whatsAppCta.ariaLabel }),
+            }
+          : {})}
+        className={classes}
+      >
         {children}
       </a>
     );

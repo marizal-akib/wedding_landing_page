@@ -1,4 +1,5 @@
-import { finalCTA, WA_AVAILABILITY, WA_CALL } from "@/lib/content/weddingLanding";
+import { finalCTA } from "@/lib/content/weddingLanding";
+import { buildWhatsAppUrl, WHATSAPP_INTENTS } from "@/lib/whatsapp";
 
 export default function FinalCTA() {
   return (
@@ -47,18 +48,26 @@ export default function FinalCTA() {
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
           <a
-            href={WA_AVAILABILITY}
+            href={buildWhatsAppUrl(WHATSAPP_INTENTS.availability)}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center bg-amber text-warm-dark px-9 py-4 font-sans text-sm font-medium uppercase tracking-widest hover:bg-amber-dark transition-colors duration-200"
+            data-whatsapp-cta
+            data-cta-intent={WHATSAPP_INTENTS.availability}
+            data-cta-location="finalCTA"
+            aria-label="Check availability on WhatsApp"
+            className="inline-flex items-center justify-center bg-amber text-warm-dark px-9 py-4 font-sans text-sm font-medium uppercase tracking-widest hover:bg-amber-dark transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber focus:ring-offset-2 focus:ring-offset-warm-dark"
           >
             Check Availability
           </a>
           <a
-            href={WA_CALL}
+            href={buildWhatsAppUrl(WHATSAPP_INTENTS.bookCall)}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center bg-transparent text-ivory border border-ivory/40 px-9 py-4 font-sans text-sm font-medium uppercase tracking-widest hover:bg-ivory hover:text-warm-dark transition-colors duration-200"
+            data-whatsapp-cta
+            data-cta-intent={WHATSAPP_INTENTS.bookCall}
+            data-cta-location="finalCTA"
+            aria-label="Book a call on WhatsApp"
+            className="inline-flex items-center justify-center bg-transparent text-ivory border border-ivory/40 px-9 py-4 font-sans text-sm font-medium uppercase tracking-widest hover:bg-ivory hover:text-warm-dark transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber focus:ring-offset-2 focus:ring-offset-warm-dark"
           >
             Book a Call
           </a>

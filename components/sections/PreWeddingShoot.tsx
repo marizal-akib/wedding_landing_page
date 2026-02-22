@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { preWedding, WA_AVAILABILITY } from "@/lib/content/weddingLanding";
+import { preWedding } from "@/lib/content/weddingLanding";
+import { buildWhatsAppUrl, WHATSAPP_INTENTS } from "@/lib/whatsapp";
 import SectionWrapper from "@/components/ui/SectionWrapper";
 import Button from "@/components/ui/Button";
 
@@ -42,7 +43,18 @@ export default function PreWeddingShoot() {
             {preWedding.tagline}
           </p>
 
-          <Button href={WA_AVAILABILITY} variant="ghost" size="md" external className="self-start">
+          <Button
+            href={buildWhatsAppUrl(WHATSAPP_INTENTS.preWeddingShoot)}
+            variant="ghost"
+            size="md"
+            external
+            whatsAppCta={{
+              intent: WHATSAPP_INTENTS.preWeddingShoot,
+              location: "preWeddingShoot",
+              ariaLabel: "Enquire about a pre-wedding shoot on WhatsApp",
+            }}
+            className="self-start"
+          >
             Enquire About a Shoot
           </Button>
         </div>

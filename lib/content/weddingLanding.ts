@@ -1,14 +1,3 @@
-// ─── WhatsApp CTA Links ────────────────────────────────────────────────────
-
-export const WA_AVAILABILITY =
-  "https://wa.me/447459130661?text=Hi%2C+I%27d+love+to+check+availability+for+my+wedding+%F0%9F%92%8D";
-
-export const WA_CALL =
-  "https://wa.me/447459130661?text=Hi%2C+I%27d+like+to+book+a+call+to+discuss+wedding+photography+%26+videography+with+Daniel+lawani";
-
-export const WA_PRICING =
-  "https://wa.me/447459130661?text=Hi%2C+I%27d+love+to+receive+the+full+pricing+guide+for+Daniel+lawani";
-
 // ─── Types ─────────────────────────────────────────────────────────────────
 
 export type Offering = {

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { WA_AVAILABILITY } from "@/lib/content/weddingLanding";
+import { buildWhatsAppUrl, WHATSAPP_INTENTS } from "@/lib/whatsapp";
 
 const navLinks = [
   { label: "Portfolio", href: "#portfolio" },
@@ -62,10 +62,14 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <a
-            href={WA_AVAILABILITY}
+            href={buildWhatsAppUrl(WHATSAPP_INTENTS.availability)}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:inline-flex items-center gap-2 bg-amber text-warm-dark px-5 py-2.5 font-sans text-xs font-medium uppercase tracking-widest hover:bg-amber-dark transition-colors duration-200"
+            data-whatsapp-cta
+            data-cta-intent={WHATSAPP_INTENTS.availability}
+            data-cta-location="header"
+            aria-label="Check availability on WhatsApp"
+            className="hidden md:inline-flex items-center gap-2 bg-amber text-warm-dark px-5 py-2.5 font-sans text-xs font-medium uppercase tracking-widest hover:bg-amber-dark transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber focus:ring-offset-2"
           >
             Check Availability
           </a>
@@ -115,11 +119,15 @@ export default function Header() {
           </Link>
         ))}
         <a
-          href={WA_AVAILABILITY}
+          href={buildWhatsAppUrl(WHATSAPP_INTENTS.availability)}
           target="_blank"
           rel="noopener noreferrer"
+          data-whatsapp-cta
+          data-cta-intent={WHATSAPP_INTENTS.availability}
+          data-cta-location="header"
+          aria-label="Check availability on WhatsApp"
           onClick={closeMenu}
-          className="mt-4 bg-amber text-warm-dark px-8 py-4 font-sans text-sm font-medium uppercase tracking-widest hover:bg-amber-dark transition-colors duration-200"
+          className="mt-4 bg-amber text-warm-dark px-8 py-4 font-sans text-sm font-medium uppercase tracking-widest hover:bg-amber-dark transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-amber focus:ring-offset-2"
         >
           Check Availability
         </a>

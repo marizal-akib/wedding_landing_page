@@ -1,4 +1,5 @@
-import { packages, WA_PRICING } from "@/lib/content/weddingLanding";
+import { packages } from "@/lib/content/weddingLanding";
+import { buildWhatsAppUrl, WHATSAPP_INTENTS } from "@/lib/whatsapp";
 
 export default function Packages() {
   return (
@@ -31,10 +32,14 @@ export default function Packages() {
             </p>
 
             <a
-              href={WA_PRICING}
+              href={buildWhatsAppUrl(WHATSAPP_INTENTS.pricing)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-amber text-warm-dark px-8 py-4 font-sans text-sm font-medium uppercase tracking-widest hover:bg-amber-dark transition-colors duration-200 self-start"
+              data-whatsapp-cta
+              data-cta-intent={WHATSAPP_INTENTS.pricing}
+              data-cta-location="packages"
+              aria-label="Request full pricing guide on WhatsApp"
+              className="inline-flex items-center gap-3 bg-amber text-warm-dark px-8 py-4 font-sans text-sm font-medium uppercase tracking-widest hover:bg-amber-dark transition-colors duration-200 self-start focus:outline-none focus:ring-2 focus:ring-amber focus:ring-offset-2 focus:ring-offset-warm-dark"
             >
               Request Full Pricing Guide
             </a>

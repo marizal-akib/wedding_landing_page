@@ -1,4 +1,5 @@
-import { hero, WA_AVAILABILITY, WA_CALL } from "@/lib/content/weddingLanding";
+import { hero } from "@/lib/content/weddingLanding";
+import { buildWhatsAppUrl, WHATSAPP_INTENTS } from "@/lib/whatsapp";
 import Button from "@/components/ui/Button";
 
 export default function Hero() {
@@ -63,10 +64,30 @@ export default function Hero() {
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center gap-4 mb-16 sm:mb-20">
-          <Button href={WA_AVAILABILITY} variant="primary" size="lg" external>
+          <Button
+            href={buildWhatsAppUrl(WHATSAPP_INTENTS.availability)}
+            variant="primary"
+            size="lg"
+            external
+            whatsAppCta={{
+              intent: WHATSAPP_INTENTS.availability,
+              location: "hero",
+              ariaLabel: "Check availability on WhatsApp",
+            }}
+          >
             Check Availability
           </Button>
-          <Button href={WA_CALL} variant="ghost-light" size="lg" external>
+          <Button
+            href={buildWhatsAppUrl(WHATSAPP_INTENTS.general)}
+            variant="ghost-light"
+            size="lg"
+            external
+            whatsAppCta={{
+              intent: WHATSAPP_INTENTS.general,
+              location: "hero",
+              ariaLabel: "Chat on WhatsApp",
+            }}
+          >
             Chat on WhatsApp
           </Button>
         </div>
