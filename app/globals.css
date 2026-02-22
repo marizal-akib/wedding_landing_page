@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ivory: #FAF7F2;
+  --color-ivory-dark: #F0EBE1;
+  --color-charcoal: #1C1C1C;
+  --color-charcoal-soft: #5C5851;
+  --color-amber: #C49A3C;
+  --color-amber-light: #D4AE58;
+  --color-amber-dark: #A07E2A;
+  --color-warm-dark: #1C1A16;
+  --color-warm-mid: #2E2820;
+
+  --font-sans: var(--font-sans-var);
+  --font-serif: var(--font-serif-var);
+  --font-italianno: var(--font-italianno-var);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FAF7F2;
+  color: #1C1C1C;
+}
+
+::selection {
+  background-color: #C49A3C;
+  color: #FAF7F2;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-feature-settings: "liga", "kern";
+  letter-spacing: -0.01em;
+}
+
+body {
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+}
+
+.font-italianno {
+  font-family: var(--font-italianno-var) !important;
+}
+
+h1.font-italianno {
+  font-family: var(--font-italianno-var) !important;
+}
