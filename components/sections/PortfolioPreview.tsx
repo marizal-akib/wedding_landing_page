@@ -48,6 +48,46 @@ export default function PortfolioPreview() {
     [images.length]
   );
 
+  // Touch swipe for carousel (mobile)
+  const minSwipeDistance = 50;
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const [touchEndX, setTouchEndX] = useState<number | null>(null);
+
+  const handleCarouselTouchStart = (e: React.TouchEvent) => {
+    setTouchEndX(null);
+    setTouchStartX(e.targetTouches[0].clientX);
+  };
+  const handleCarouselTouchMove = (e: React.TouchEvent) => {
+    setTouchEndX(e.targetTouches[0].clientX);
+  };
+  const handleCarouselTouchEnd = () => {
+    if (touchStartX == null || touchEndX == null) return;
+    const delta = touchStartX - touchEndX;
+    if (delta > minSwipeDistance) next();
+    else if (delta < -minSwipeDistance) prev();
+    setTouchStartX(null);
+    setTouchEndX(null);
+  };
+
+  // Touch swipe for lightbox (mobile)
+  const [lbTouchStartX, setLbTouchStartX] = useState<number | null>(null);
+  const [lbTouchEndX, setLbTouchEndX] = useState<number | null>(null);
+  const handleLightboxTouchStart = (e: React.TouchEvent) => {
+    setLbTouchEndX(null);
+    setLbTouchStartX(e.targetTouches[0].clientX);
+  };
+  const handleLightboxTouchMove = (e: React.TouchEvent) => {
+    setLbTouchEndX(e.targetTouches[0].clientX);
+  };
+  const handleLightboxTouchEnd = () => {
+    if (lbTouchStartX == null || lbTouchEndX == null) return;
+    const delta = lbTouchStartX - lbTouchEndX;
+    if (delta > minSwipeDistance) lightboxPrev();
+    else if (delta < -minSwipeDistance) lightboxNext();
+    setLbTouchStartX(null);
+    setLbTouchEndX(null);
+  };
+
   useEffect(() => {
     if (!lightboxOpen) return;
     const onKey = (e: KeyboardEvent) => {
@@ -89,7 +129,6 @@ export default function PortfolioPreview() {
             title="Wedding Highlight Film"
           />
         ) : (
-          /* Placeholder while video URL is not yet set */
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-warm-dark">
             <div className="flex h-20 w-20 items-center justify-center border-2 border-amber/50 bg-black/30">
               <svg
@@ -112,7 +151,12 @@ export default function PortfolioPreview() {
       {/* ── Image Carousel ── */}
       <div className="relative">
         {/* Cards */}
-        <div className="overflow-hidden">
+        <div
+          className="overflow-hidden touch-pan-y"
+          onTouchStart={handleCarouselTouchStart}
+          onTouchMove={handleCarouselTouchMove}
+          onTouchEnd={handleCarouselTouchEnd}
+        >
           <div
             className="flex transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(-${(current * 100) / visibleCount}%)` }}
@@ -144,11 +188,11 @@ export default function PortfolioPreview() {
           </div>
         </div>
 
-        {/* Prev / Next arrows - visible on sm+ */}
+        {/* Prev / Next arrows */}
         <button
           onClick={prev}
           aria-label="Previous"
-          className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 z-10 h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center border border-amber/40 bg-ivory hover:bg-amber/10 transition-colors"
+          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-3 z-10 h-10 w-10 sm:h-11 sm:w-11 min-h-[44px] min-w-[44px] flex items-center justify-center border border-amber/40 bg-ivory/95 hover:bg-amber/10 transition-colors"
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-charcoal">
             <polyline points="10,2 4,8 10,14" />
@@ -157,7 +201,7 @@ export default function PortfolioPreview() {
         <button
           onClick={next}
           aria-label="Next"
-          className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 z-10 h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center border border-amber/40 bg-ivory hover:bg-amber/10 transition-colors"
+          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-3 z-10 h-10 w-10 sm:h-11 sm:w-11 min-h-[44px] min-w-[44px] flex items-center justify-center border border-amber/40 bg-ivory/95 hover:bg-amber/10 transition-colors"
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-charcoal">
             <polyline points="6,2 12,8 6,14" />
@@ -193,6 +237,9 @@ export default function PortfolioPreview() {
           <div
             className="relative w-full max-w-4xl max-h-[90vh] mx-4"
             onClick={(e) => e.stopPropagation()}
+            onTouchStart={handleLightboxTouchStart}
+            onTouchMove={handleLightboxTouchMove}
+            onTouchEnd={handleLightboxTouchEnd}
           >
             <div className="relative aspect-[3/4] sm:aspect-video w-full">
                 <Image

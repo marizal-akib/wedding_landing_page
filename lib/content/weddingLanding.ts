@@ -26,7 +26,6 @@ export type Testimonial = {
   quote: string;
   author: string;
   detail: string;
-  placeholder?: boolean;
 };
 
 export type FAQItem = {
@@ -188,21 +187,18 @@ export const testimonials: Testimonial[] = [
       "We felt completely comfortable from the first call. The final video brought us to tears — it was more than we ever expected.",
     author: "Amara & James",
     detail: "Summer Wedding, East London",
-    placeholder: true,
   },
   {
     quote:
       "Every single photo told a story. We keep going back to the gallery — it never gets old. Truly cinematic.",
     author: "Priya & David",
     detail: "Garden Wedding, Surrey",
-    placeholder: true,
   },
   {
     quote:
       "The team were so calm and professional. We barely noticed them and yet they captured everything. Magic.",
     author: "Fatima & Michael",
     detail: "Traditional Wedding, North London",
-    placeholder: true,
   },
 ];
 

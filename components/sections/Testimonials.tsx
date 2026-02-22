@@ -62,11 +62,6 @@ export default function Testimonials() {
               <span className="font-sans text-xs text-charcoal-soft">
                 {t.detail}
               </span>
-              {t.placeholder && (
-                <span className="font-sans text-xs text-amber/50 mt-1">
-                  (Placeholder — real testimonial coming soon)
-                </span>
-              )}
             </div>
           </div>
         ))}
