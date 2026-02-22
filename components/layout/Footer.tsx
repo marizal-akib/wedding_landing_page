@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="flex flex-col gap-4 max-w-xs">
             <span className="font-serif text-2xl tracking-[0.2em] uppercase text-ivory">
-              Wani<span className="text-amber">London</span>
+              Daniel <span className="text-amber">lawani</span>
             </span>
             <p className="font-sans text-sm text-ivory/50 leading-relaxed">
               {footer.tagline}

@@ -25,9 +25,15 @@ const italianno = Italianno({
 });
 
 export const metadata: Metadata = {
-  title: "Wani London | Cinematic Wedding Photography & Films",
+  title: "Daniel lawani | Cinematic Wedding Photography & Films",
   description:
     "Timeless, emotional wedding photography and videography in London. We craft cinematic stories that let you relive every emotion — the nerves, the laughter, the vows, the celebration.",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.svg" },
+    ],
+  },
   keywords: [
     "wedding photography London",
     "wedding videography London",
@@ -36,7 +42,7 @@ export const metadata: Metadata = {
     "wedding coverage London",
   ],
   openGraph: {
-    title: "Wani London | Cinematic Wedding Photography & Films",
+    title: "Daniel lawani | Cinematic Wedding Photography & Films",
     description:
       "Timeless, emotional storytelling for couples who want more than just coverage — they want a legacy.",
     type: "website",

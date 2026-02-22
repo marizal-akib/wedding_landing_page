@@ -42,7 +42,7 @@ export default function Header() {
             }`}
             onClick={closeMenu}
           >
-            Wani<span className="text-amber">London</span>
+            Daniel <span className="text-amber">lawani</span>
           </Link>
 
           {/* Desktop Nav */}

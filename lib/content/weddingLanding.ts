@@ -4,10 +4,10 @@ export const WA_AVAILABILITY =
   "https://wa.me/447459130661?text=Hi%2C+I%27d+love+to+check+availability+for+my+wedding+%F0%9F%92%8D";
 
 export const WA_CALL =
-  "https://wa.me/447459130661?text=Hi%2C+I%27d+like+to+book+a+call+to+discuss+wedding+photography+%26+videography+with+Wani+London";
+  "https://wa.me/447459130661?text=Hi%2C+I%27d+like+to+book+a+call+to+discuss+wedding+photography+%26+videography+with+Daniel+lawani";
 
 export const WA_PRICING =
-  "https://wa.me/447459130661?text=Hi%2C+I%27d+love+to+receive+the+full+pricing+guide+for+Wani+London";
+  "https://wa.me/447459130661?text=Hi%2C+I%27d+love+to+receive+the+full+pricing+guide+for+Daniel+lawani";
 
 // ─── Types ─────────────────────────────────────────────────────────────────
 
@@ -116,7 +116,7 @@ export const timelineSteps: TimelineStep[] = [
 export const styleSection = {
   eyebrow: "Our Style",
   heading: "Warm. Nostalgic. Cinematic.",
-  stylePreviewImage: "/style-preview.jpg",
+  stylePreviewImage: "/style-preview-v2.jpg",
   blends: [
     "Natural candid moments",
     "Emotional storytelling",
@@ -284,5 +284,5 @@ export const footer = {
     { label: "Packages", href: "#packages" },
     { label: "FAQ", href: "#faq" },
   ],
-  legal: `© ${new Date().getFullYear()} Wani London. All rights reserved.`,
+  legal: `© ${new Date().getFullYear()} Daniel lawani. All rights reserved.`,
 };
